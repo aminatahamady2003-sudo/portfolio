@@ -6,17 +6,20 @@
   <title>Aminata SY | Portfolio Data, IA & Finance</title>
   <style>
     :root {
-      --bg: #061126;
-      --bg-soft: rgba(16, 30, 57, 0.78);
-      --card: rgba(20, 36, 67, 0.88);
-      --card-2: rgba(13, 24, 46, 0.95);
-      --line: rgba(150, 182, 255, 0.18);
-      --text: #f5f7ff;
-      --muted: #b9c3e6;
-      --accent: #78a6ff;
-      --accent-2: #8ef0d1;
-      --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
-      --radius: 22px;
+      --bg: #0b1020;
+      --bg-2: #121933;
+      --panel: rgba(22, 28, 57, 0.76);
+      --panel-strong: rgba(18, 24, 48, 0.92);
+      --line: rgba(255,255,255,0.08);
+      --text: #f8f8ff;
+      --muted: #c7cbe3;
+      --pink: #f39bc7;
+      --pink-2: #ffbfdc;
+      --purple: #bca7ff;
+      --blue: #8bb8ff;
+      --mint: #a6f2df;
+      --shadow: 0 18px 60px rgba(0,0,0,0.38);
+      --radius: 24px;
       --max: 1180px;
     }
 
@@ -27,49 +30,59 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(120,166,255,0.18), transparent 30%),
-        radial-gradient(circle at 90% 10%, rgba(142,240,209,0.14), transparent 22%),
-        linear-gradient(180deg, #08111f 0%, #071327 45%, #051022 100%);
+        radial-gradient(circle at 10% 10%, rgba(243,155,199,0.20), transparent 20%),
+        radial-gradient(circle at 90% 8%, rgba(139,184,255,0.16), transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(188,167,255,0.12), transparent 18%),
+        linear-gradient(180deg, #090d1a 0%, #0d1326 45%, #0a1021 100%);
       overflow-x: hidden;
     }
 
-    .bg-grid {
+    .noise, .grid, .blob, .blob2, .blob3 {
       position: fixed;
+      pointer-events: none;
+      z-index: -3;
+    }
+
+    .grid {
       inset: 0;
       background-image:
         linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 38px 38px;
-      mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
-      pointer-events: none;
-      opacity: 0.25;
-      z-index: -3;
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+      opacity: 0.28;
     }
 
-    .orb, .orb2 {
-      position: fixed;
+    .blob, .blob2, .blob3 {
       border-radius: 50%;
-      filter: blur(70px);
-      pointer-events: none;
-      z-index: -2;
-      opacity: 0.35;
-      animation: float 10s ease-in-out infinite;
-    }
-    .orb {
-      width: 260px; height: 260px;
-      background: rgba(120, 166, 255, 0.28);
-      top: 8%; left: -40px;
-    }
-    .orb2 {
-      width: 320px; height: 320px;
-      background: rgba(142, 240, 209, 0.16);
-      right: -60px; top: 22%;
-      animation-delay: -4s;
+      filter: blur(75px);
+      opacity: 0.30;
+      animation: floatBlob 12s ease-in-out infinite;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) translateX(0px); }
-      50% { transform: translateY(18px) translateX(10px); }
+    .blob {
+      width: 320px; height: 320px;
+      background: rgba(243,155,199,0.28);
+      top: 7%; left: -60px;
+    }
+
+    .blob2 {
+      width: 260px; height: 260px;
+      background: rgba(139,184,255,0.22);
+      top: 18%; right: -50px;
+      animation-delay: -3s;
+    }
+
+    .blob3 {
+      width: 290px; height: 290px;
+      background: rgba(188,167,255,0.18);
+      bottom: 8%; right: 12%;
+      animation-delay: -7s;
+    }
+
+    @keyframes floatBlob {
+      0%,100% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(16px) translateX(8px) scale(1.04); }
     }
 
     .container {
@@ -80,18 +93,18 @@
     .navbar {
       position: sticky;
       top: 0;
-      z-index: 30;
-      backdrop-filter: blur(16px);
-      background: rgba(4, 11, 23, 0.72);
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      background: rgba(10, 13, 27, 0.68);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .nav-inner {
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      min-height: 76px;
+      gap: 20px;
     }
 
     .brand {
@@ -106,12 +119,12 @@
       width: 42px;
       height: 42px;
       border-radius: 14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #071327;
       display: grid;
       place-items: center;
+      color: #10152a;
       font-weight: 900;
-      box-shadow: var(--shadow);
+      background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+      box-shadow: 0 12px 30px rgba(243,155,199,0.25);
     }
 
     .nav-links {
@@ -121,49 +134,62 @@
       justify-content: center;
     }
 
-    .nav-links a, .btn {
+    .nav-links a {
+      color: var(--muted);
       text-decoration: none;
-      color: var(--text);
+      font-size: 0.95rem;
       transition: 0.25s ease;
+      position: relative;
     }
 
-    .nav-links a {
-      font-size: 0.96rem;
-      color: var(--muted);
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--blue));
+      transition: width 0.25s ease;
     }
 
     .nav-links a:hover { color: white; }
+    .nav-links a:hover::after { width: 100%; }
 
     .hero {
-      padding: 86px 0 54px;
+      padding: 80px 0 42px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 24px;
       align-items: stretch;
     }
 
     .glass {
-      background: var(--bg-soft);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(18px);
       border-radius: 30px;
-      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
     }
 
-    .hero-card {
-      padding: 42px;
+    .hero-main {
+      padding: 38px;
       position: relative;
       overflow: hidden;
+      min-height: 540px;
     }
 
-    .hero-card::before {
+    .hero-main::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(120,166,255,0.12), transparent 35%, rgba(142,240,209,0.08));
+      background:
+        radial-gradient(circle at 15% 20%, rgba(243,155,199,0.17), transparent 26%),
+        radial-gradient(circle at 82% 18%, rgba(139,184,255,0.15), transparent 24%),
+        linear-gradient(135deg, rgba(255,255,255,0.03), transparent 45%);
       pointer-events: none;
     }
 
@@ -171,100 +197,122 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-      color: var(--accent-2);
       padding: 10px 14px;
       border-radius: 999px;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
+      color: #ffe5f0;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
       margin-bottom: 18px;
     }
 
     h1 {
       margin: 0 0 14px;
-      font-size: clamp(2.3rem, 5vw, 4.7rem);
+      font-size: clamp(2.6rem, 5.5vw, 5rem);
       line-height: 0.98;
-      letter-spacing: -2px;
+      letter-spacing: -2.5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--pink), var(--pink-2), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .subtitle {
-      font-size: clamp(1.03rem, 1.8vw, 1.28rem);
-      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+      margin: 0 0 22px;
+      max-width: 700px;
       color: var(--muted);
-      max-width: 690px;
-      margin-bottom: 26px;
-    }
-
-    .highlight {
-      color: white;
-      font-weight: 700;
+      line-height: 1.8;
+      font-size: clamp(1rem, 1.5vw, 1.16rem);
     }
 
     .cta-row {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 26px;
+      margin: 26px 0 24px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
       min-height: 50px;
       padding: 0 18px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
       color: white;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
       font-weight: 600;
     }
 
-    .btn:hover { transform: translateY(-2px); }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(243,155,199,0.15);
+    }
+
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #9fbaff);
-      color: #071327;
+      background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+      color: #11162a;
       border: none;
     }
 
-    .stats {
+    .hero-stats {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      margin-top: 24px;
+      margin-top: 26px;
     }
 
     .stat {
       padding: 18px;
       border-radius: 18px;
       background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
     .stat strong {
       display: block;
-      font-size: 1.25rem;
       margin-bottom: 8px;
+      font-size: 1.06rem;
     }
 
-    .stat span { color: var(--muted); font-size: 0.95rem; }
+    .stat span {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.92rem;
+    }
 
     .hero-side {
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
+      display: grid;
       gap: 18px;
     }
 
-    .profile-block {
-      padding: 22px;
-      border-radius: 24px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.07);
+    .hero-box {
+      padding: 24px;
+      border-radius: 26px;
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
     }
 
-    .profile-chip-wrap, .skill-tags, .soft-tags {
+    .hero-box h3, .card h3 {
+      margin: 0 0 14px;
+      font-size: 1.18rem;
+    }
+
+    .chips, .skill-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -278,12 +326,75 @@
       border-radius: 999px;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      font-size: 0.93rem;
+      color: #f0efff;
+      font-size: 0.92rem;
     }
 
+    .mobile-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 210px;
+    }
+
+    .mobile-card::after {
+      content: "";
+      position: absolute;
+      right: -30px;
+      bottom: -30px;
+      width: 160px;
+      height: 160px;
+      border-radius: 40px;
+      background: linear-gradient(135deg, rgba(243,155,199,0.25), rgba(139,184,255,0.18));
+      transform: rotate(28deg);
+    }
+
+    .phone {
+      position: absolute;
+      right: 26px;
+      bottom: 18px;
+      width: 110px;
+      height: 185px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, #181f3e, #10162e);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 18px 30px rgba(0,0,0,0.35);
+      overflow: hidden;
+      transform: rotate(-8deg);
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 36px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+    }
+
+    .phone-screen {
+      position: absolute;
+      inset: 22px 10px 12px 10px;
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(243,155,199,0.14), rgba(139,184,255,0.10)),
+        #131a34;
+      padding: 12px 10px;
+    }
+
+    .screen-bar, .screen-card {
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      margin-bottom: 8px;
+    }
+
+    .screen-bar { height: 16px; width: 68%; }
+    .screen-card { height: 34px; }
+
     section {
-      padding: 38px 0;
+      padding: 42px 0;
     }
 
     .section-head {
@@ -291,61 +402,70 @@
       align-items: end;
       justify-content: space-between;
       gap: 20px;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
     .section-head h2 {
       margin: 0;
-      font-size: clamp(1.8rem, 2.5vw, 2.7rem);
+      font-size: clamp(1.9rem, 2.7vw, 2.9rem);
       letter-spacing: -1px;
     }
 
     .section-head p {
       margin: 0;
-      color: var(--muted);
       max-width: 720px;
-      line-height: 1.7;
+      color: var(--muted);
+      line-height: 1.8;
     }
 
-    .about-grid, .cert-grid, .skills-grid, .contact-grid {
+    .about-grid, .skills-grid, .contact-grid, .edu-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 22px;
     }
 
     .card {
-      background: var(--card);
+      background: rgba(18, 24, 48, 0.88);
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid var(--line);
       padding: 28px;
       box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
     }
 
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 14px;
-      font-size: 1.25rem;
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), transparent 38%);
+      pointer-events: none;
     }
 
     .card p, .card li {
       color: var(--muted);
-      line-height: 1.75;
+      line-height: 1.78;
+      position: relative;
+      z-index: 1;
     }
 
     .timeline {
       display: grid;
       gap: 18px;
+      position: relative;
+      z-index: 1;
     }
 
     .timeline-item {
       padding-left: 18px;
-      border-left: 2px solid rgba(120,166,255,0.35);
+      border-left: 2px solid rgba(243,155,199,0.40);
     }
 
     .timeline-item small {
-      color: var(--accent-2);
       display: inline-block;
       margin-bottom: 8px;
+      color: #ffd5e8;
+      font-size: 0.92rem;
     }
 
     .project-grid {
@@ -355,41 +475,40 @@
     }
 
     .project-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 340px;
+      min-height: 355px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: linear-gradient(180deg, rgba(28,49,90,0.95), rgba(10,20,38,0.98));
+      background:
+        linear-gradient(180deg, rgba(29,36,69,0.98), rgba(15,20,40,0.98));
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .project-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -35% -35% auto;
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(circle, rgba(120,166,255,0.23), transparent 70%);
-      pointer-events: none;
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(243,155,199,0.28);
+      box-shadow: 0 20px 55px rgba(243,155,199,0.10);
     }
-
-    .project-top { position: relative; z-index: 1; }
 
     .project-label {
       display: inline-block;
+      margin-bottom: 14px;
       padding: 8px 12px;
       border-radius: 999px;
-      margin-bottom: 14px;
-      background: rgba(255,255,255,0.08);
-      color: var(--accent-2);
-      font-size: 0.88rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #ffe1ef;
+      font-size: 0.84rem;
+      position: relative;
+      z-index: 1;
     }
 
     .project-card h3 {
-      font-size: 1.45rem;
+      font-size: 1.38rem;
       line-height: 1.25;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
     }
 
     .project-meta {
@@ -397,6 +516,8 @@
       flex-wrap: wrap;
       gap: 8px;
       margin-top: 16px;
+      position: relative;
+      z-index: 1;
     }
 
     .tag {
@@ -405,49 +526,49 @@
       border-radius: 999px;
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.08);
-      color: #d6def8;
+      color: #edf0ff;
     }
 
     .project-bottom {
-      margin-top: 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      color: var(--muted);
-      font-size: 0.94rem;
+      position: relative;
+      z-index: 1;
+      margin-top: 20px;
+      color: #e8ebff;
+      font-size: 0.93rem;
+    }
+
+    .cert-list, .edu-list, .skill-lines {
+      display: grid;
+      gap: 12px;
       position: relative;
       z-index: 1;
     }
 
-    .skills-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .skill-line {
+    .line {
       padding: 14px 16px;
       border-radius: 16px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.07);
+      color: var(--muted);
+      line-height: 1.7;
     }
 
-    .skill-line strong { display: inline-block; min-width: 120px; }
+    .line strong { color: white; }
 
-    .contact-box a {
+    .contact-card a {
       color: white;
       text-decoration: none;
     }
 
     .footer {
-      padding: 30px 0 60px;
-      color: var(--muted);
+      padding: 26px 0 54px;
       text-align: center;
+      color: var(--muted);
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(28px);
+      transform: translateY(34px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
@@ -456,26 +577,30 @@
       transform: translateY(0);
     }
 
-    @media (max-width: 1050px) {
-      .hero-grid, .project-grid, .about-grid, .cert-grid, .skills-grid, .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .stats { grid-template-columns: 1fr; }
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+    .delay-3 { transition-delay: 0.24s; }
+
+    @media (max-width: 1080px) {
+      .hero-grid, .project-grid, .about-grid, .skills-grid, .contact-grid, .edu-grid { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 720px) {
-      .hero { padding-top: 40px; }
-      .hero-card, .hero-side, .card { padding: 22px; }
-      .nav-inner { padding: 10px 0; align-items: flex-start; }
+    @media (max-width: 740px) {
+      .hero { padding-top: 48px; }
+      .hero-main, .hero-box, .card { padding: 22px; }
+      .nav-inner { padding: 12px 0; align-items: flex-start; }
+      .section-head { flex-direction: column; align-items: flex-start; }
       .nav-links { gap: 12px; }
-      .section-head { align-items: flex-start; flex-direction: column; }
+      h1 { letter-spacing: -1.5px; }
     }
   </style>
 </head>
 <body>
-  <div class="bg-grid"></div>
-  <div class="orb"></div>
-  <div class="orb2"></div>
+  <div class="grid"></div>
+  <div class="blob"></div>
+  <div class="blob2"></div>
+  <div class="blob3"></div>
 
   <nav class="navbar">
     <div class="container nav-inner">
@@ -485,9 +610,10 @@
       </div>
       <div class="nav-links">
         <a href="#about">À propos</a>
+        <a href="#experience">Expérience</a>
         <a href="#projects">Projets</a>
-        <a href="#certifications">Certificats</a>
         <a href="#skills">Compétences</a>
+        <a href="#formation">Formation</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -495,62 +621,75 @@
 
   <header class="hero container">
     <div class="hero-grid">
-      <div class="glass hero-card reveal">
-        <div class="eyebrow">Disponible pour stage de fin d'études + alternance master</div>
-        <h1>Data, IA <br>et <span style="background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Finance</span></h1>
+      <div class="glass hero-main reveal">
+        <div class="eyebrow">Disponible immédiatement • Mobile • Stage & alternance</div>
+        <h1>Aminata SY<br><span class="gradient-text">Data, IA & Finance</span></h1>
         <p class="subtitle">
-          Étudiante ingénieure avec un <span class="highlight">profil hybride technique et financier</span>, je construis des projets en data analysis, machine learning, automatisation, visualisation et aide à la décision, avec un intérêt fort pour les cas d’usage concrets à impact métier.
+          Étudiante ingénieure avec un <strong style="color:white;">profil hybride data et finance</strong>, j’aime construire des solutions concrètes mêlant analyse, visualisation, machine learning, développement et compréhension métier.
+        </p>
+        <p class="subtitle">
+          Mon parcours associe <strong style="color:white;">Power BI, SQL, Python, Flutter, C#/.NET, cloud Azure, machine learning et finance quantitative</strong>, avec des projets orientés décision, paiement digital, prédiction et IA appliquée.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#projects">Voir mes projets</a>
+          <a class="btn btn-primary" href="#projects">Découvrir mes projets</a>
           <a class="btn" href="#contact">Me contacter</a>
-          <a class="btn" href="#certifications">Voir mes certificats</a>
+          <a class="btn" href="#skills">Voir mes compétences</a>
         </div>
-        <div class="stats">
+        <div class="hero-stats">
           <div class="stat">
-            <strong>Data + Finance</strong>
-            <span>Un positionnement différenciant entre analyse, décision et compréhension métier.</span>
+            <strong>Profil différenciant</strong>
+            <span>Data, IA, finance et développement dans un même parcours.</span>
           </div>
           <div class="stat">
-            <strong>IA appliquée</strong>
-            <span>Machine learning, modélisation, trajectoire robotique, automatisation.</span>
+            <strong>Expériences concrètes</strong>
+            <span>Stage, projets académiques, projet mobile et travaux analytiques.</span>
           </div>
           <div class="stat">
-            <strong>Recherche d'opportunités</strong>
-            <span>Stage de fin d'études et alternance pour un master orienté data ou finance analytique.</span>
+            <strong>Objectif</strong>
+            <span>Mettre la donnée au service de la décision, du produit et de la performance.</span>
           </div>
         </div>
       </div>
 
-      <div class="glass hero-side reveal">
-        <div class="profile-block">
-          <h3>Profil</h3>
-          <div class="profile-chip-wrap">
-            <span class="chip">Data Analyst</span>
-            <span class="chip">Data Engineer junior</span>
+      <div class="hero-side">
+        <div class="hero-box reveal delay-1">
+          <h3>Domaines clés</h3>
+          <div class="chips">
+            <span class="chip">Data Analysis</span>
             <span class="chip">Machine Learning</span>
+            <span class="chip">Business Intelligence</span>
             <span class="chip">Finance quantitative</span>
+            <span class="chip">Flutter</span>
             <span class="chip">Power BI</span>
-            <span class="chip">Python & SQL</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Python</span>
           </div>
         </div>
 
-        <div class="profile-block">
-          <h3>Atouts</h3>
-          <div class="soft-tags">
+        <div class="hero-box mobile-card reveal delay-2">
+          <h3>Projet signature</h3>
+          <p style="max-width: 68%; color: var(--muted); line-height: 1.8; margin: 0; position: relative; z-index: 1;">
+            <strong style="color:white;">MoneyLink</strong> : application mobile de paiement inspirée des usages de mobile money au Sénégal, avec interfaces Flutter, historique, transactions et déploiement iOS.
+          </p>
+          <div class="phone" aria-hidden="true">
+            <div class="phone-screen">
+              <div class="screen-bar"></div>
+              <div class="screen-card"></div>
+              <div class="screen-card"></div>
+              <div class="screen-card"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-box reveal delay-3">
+          <h3>Soft skills</h3>
+          <div class="chips">
             <span class="chip">Esprit d’analyse</span>
-            <span class="chip">Rigueur scientifique</span>
-            <span class="chip">Communication technique</span>
             <span class="chip">Travail en équipe</span>
+            <span class="chip">Communication</span>
+            <span class="chip">Rigueur</span>
             <span class="chip">Autonomie</span>
           </div>
-        </div>
-
-        <div class="profile-block">
-          <h3>Focus actuel</h3>
-          <p style="margin:0;color:var(--muted);line-height:1.7;">
-            Mettre en avant mes projets académiques, mes projets personnels, mes certificats et ma double culture <strong style="color:white;">data / finance</strong> dans un portfolio professionnel moderne.
-          </p>
         </div>
       </div>
     </div>
@@ -560,40 +699,53 @@
     <section id="about">
       <div class="container">
         <div class="section-head reveal">
-          <div>
-            <h2>À propos</h2>
-          </div>
-          <p>
-            Mon objectif est de relier la technique, l’analyse et la compréhension métier. J’aime transformer des données brutes en modèles, tableaux de bord et solutions utiles pour la décision.
-          </p>
+          <h2>À propos</h2>
+          <p>Je cherche à évoluer dans des environnements où la donnée, la logique métier et la technologie se rencontrent. Mon intérêt pour la finance renforce ma manière d’aborder l’analyse, la modélisation et la restitution des résultats.</p>
         </div>
         <div class="about-grid">
           <div class="card reveal">
             <h3>Mon positionnement</h3>
-            <p>
-              Je ne suis pas uniquement orientée code. Mon profil associe la <strong style="color:white;">data</strong>, l’<strong style="color:white;">IA</strong> et la <strong style="color:white;">finance</strong>, ce qui me permet de comprendre à la fois les aspects techniques d’un projet et les enjeux de décision, de performance et d’analyse.
-            </p>
-            <p>
-              Je souhaite évoluer sur des sujets comme la data analysis, la data science appliquée, l’automatisation analytique, la BI, ou des problématiques à l’intersection entre données et finance.
-            </p>
+            <p>Je ne me limite pas à un profil purement technique. Mon parcours me permet de comprendre les données, de construire des solutions, mais aussi d’interpréter des indicateurs avec une vraie sensibilité <strong style="color:white;">finance, risque, décision et performance</strong>.</p>
+            <p>Je veux mettre cette double culture au service de projets en data, IA, BI, finance analytique, ou produits numériques à fort impact.</p>
           </div>
 
-          <div class="card reveal">
-            <h3>Expériences marquantes</h3>
+          <div class="card reveal delay-1">
+            <h3>Ce que j’apporte</h3>
             <div class="timeline">
               <div class="timeline-item">
-                <small>Stage Data Analyst — Ministère de l’économie</small>
-                <p>Prétraitement de données, analyse exploratoire, tableaux de bord Power BI et automatisation de traitements pour l’aide à la décision.</p>
+                <small>Analyse & restitution</small>
+                <p>Capacité à transformer des données en tableaux de bord, indicateurs et recommandations utiles.</p>
               </div>
               <div class="timeline-item">
-                <small>Projet IA — Planification de trajectoire robotique</small>
-                <p>Simulation Python d’un agent autonome en environnement dynamique avec évitement d’obstacles.</p>
+                <small>Développement & produit</small>
+                <p>Expérience sur Flutter, C#/.NET, API et collaboration GitHub dans des projets d’équipe.</p>
               </div>
               <div class="timeline-item">
-                <small>Projet Data Science — Modélisation prédictive</small>
-                <p>Feature engineering, modèles supervisés, optimisation, évaluation et interprétation des performances.</p>
+                <small>IA appliquée</small>
+                <p>Travail sur modélisation, prédiction, fraude, trajectoire robotique et simulation.</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Expérience</h2>
+          <p>Une expérience professionnelle centrée sur la donnée, l’aide à la décision et la communication de résultats auprès d’un contexte métier réel.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Data Analyst — Ministère de l’Économie, du Plan et de la Coopération (DCEP, Dakar)</h3>
+          <p>Conception de tableaux de bord interactifs avec <strong style="color:white;">Power BI</strong> pour le suivi d’indicateurs et l’aide à la décision. Préparation, nettoyage et restructuration des données avec <strong style="color:white;">Power Query</strong>, <strong style="color:white;">Excel</strong> et <strong style="color:white;">SQL</strong>, puis présentation des résultats lors de réunions de travail.</p>
+          <div class="project-meta">
+            <span class="tag">Power BI</span>
+            <span class="tag">Power Query</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Excel</span>
+            <span class="tag">Data Cleaning</span>
+            <span class="tag">Reporting</span>
           </div>
         </div>
       </div>
@@ -602,146 +754,100 @@
     <section id="projects">
       <div class="container">
         <div class="section-head reveal">
-          <div>
-            <h2>Projets</h2>
-          </div>
-          <p>
-            Une sélection de projets académiques, techniques et personnels à enrichir progressivement avec démos, captures, GitHub, notebooks, dashboards et résultats.
-          </p>
+          <h2>Projets</h2>
+          <p>Des projets choisis pour montrer l’étendue de mon profil : paiement digital, IA, data science, finance, prédiction et développement.</p>
         </div>
 
         <div class="project-grid">
           <article class="card project-card reveal">
-            <div class="project-top">
-              <span class="project-label">Machine Learning</span>
-              <h3>RFID — Classification intelligente</h3>
-              <p>Étude de modèles de classification pour exploiter des données RFID, comparer plusieurs approches et analyser la performance de manière rigoureuse.</p>
+            <div>
+              <span class="project-label">Application mobile</span>
+              <h3>MoneyLink</h3>
+              <p>Projet de paiement mobile inspiré de services comme Wave, pensé pour le transfert d’argent et la gestion de transactions via smartphone. J’ai développé plusieurs interfaces sur Flutter : connexion, inscription, solde, transactions et historique, en collaboration avec une équipe de 6 personnes.</p>
+              <div class="project-meta">
+                <span class="tag">Flutter</span>
+                <span class="tag">GitHub</span>
+                <span class="tag">iOS Deployment</span>
+                <span class="tag">UI Mobile</span>
+              </div>
+            </div>
+            <div class="project-bottom">Rôle clé sur l’interface et le déploiement iOS, avec correction continue de bugs en équipe.</div>
+          </article>
+
+          <article class="card project-card reveal delay-1">
+            <div>
+              <span class="project-label">Machine Learning & Finance</span>
+              <h3>Détection de fraude bancaire</h3>
+              <p>Projet d’analyse de transactions financières afin d’identifier des comportements frauduleux. Prétraitement, sélection de modèles, entraînement et évaluation via des métriques adaptées comme le recall et le F1-score.</p>
               <div class="project-meta">
                 <span class="tag">Python</span>
                 <span class="tag">Scikit-learn</span>
                 <span class="tag">Random Forest</span>
-                <span class="tag">Deep Learning</span>
+                <span class="tag">SVM</span>
               </div>
             </div>
-            <div class="project-bottom">
-              <span>Pipeline complet, métriques, visualisations et interprétation.</span>
-            </div>
+            <div class="project-bottom">Un projet très pertinent pour relier data science et problématiques financières à fort enjeu.</div>
           </article>
 
-          <article class="card project-card reveal">
-            <div class="project-top">
-              <span class="project-label">IA / Robotique</span>
-              <h3>Planification de trajectoire robotique</h3>
-              <p>Conception d’une solution pour un agent autonome devant se déplacer dans un environnement dynamique avec contraintes d’obstacles.</p>
+          <article class="card project-card reveal delay-2">
+            <div>
+              <span class="project-label">Data Science</span>
+              <h3>Prédiction de prix immobiliers</h3>
+              <p>Conception d’un modèle capable d’estimer le prix de biens immobiliers à partir de données structurées, avec comparaison entre régression linéaire et réseau de neurones.</p>
               <div class="project-meta">
+                <span class="tag">Régression</span>
+                <span class="tag">Réseaux de neurones</span>
+                <span class="tag">Évaluation</span>
                 <span class="tag">Python</span>
-                <span class="tag">Simulation</span>
-                <span class="tag">Path Planning</span>
-                <span class="tag">Agile</span>
               </div>
             </div>
-            <div class="project-bottom">
-              <span>Projet fort pour montrer l’IA appliquée et la logique algorithmique.</span>
-            </div>
+            <div class="project-bottom">Projet analytique orienté valeur métier, interprétation et comparaison de modèles.</div>
           </article>
 
           <article class="card project-card reveal">
-            <div class="project-top">
-              <span class="project-label">BI / Économie</span>
-              <h3>Dashboard Power BI — Analyse économique</h3>
-              <p>Création de tableaux de bord pour suivre des indicateurs économiques, structurer les données et soutenir la prise de décision.</p>
+            <div>
+              <span class="project-label">IA appliquée</span>
+              <h3>Planification de trajectoire robotique</h3>
+              <p>Travail sur une solution de navigation intelligente pour robot mobile dans des environnements dynamiques, avec adaptation en temps réel aux obstacles et validation par simulation.</p>
+              <div class="project-meta">
+                <span class="tag">Path Planning</span>
+                <span class="tag">Simulation</span>
+                <span class="tag">Robotique</span>
+                <span class="tag">IA</span>
+              </div>
+            </div>
+            <div class="project-bottom">Projet original qui met en avant raisonnement algorithmique, IA et approche scientifique.</div>
+          </article>
+
+          <article class="card project-card reveal delay-1">
+            <div>
+              <span class="project-label">Développement web</span>
+              <h3>Application e-commerce</h3>
+              <p>Développement d’un site e-commerce de vente de cosmétiques avec C#/.NET, base de données, API et environnement cloud Azure, dans une logique de projet personnel orienté produit.</p>
+              <div class="project-meta">
+                <span class="tag">C#</span>
+                <span class="tag">.NET</span>
+                <span class="tag">API</span>
+                <span class="tag">Azure</span>
+              </div>
+            </div>
+            <div class="project-bottom">Un projet qui montre mes bases solides en développement au-delà de la data.</div>
+          </article>
+
+          <article class="card project-card reveal delay-2">
+            <div>
+              <span class="project-label">BI & Reporting</span>
+              <h3>Dashboards décisionnels</h3>
+              <p>Création de visualisations et tableaux de bord interactifs pour mettre en évidence des tendances, suivre des KPI et soutenir la prise de décision dans un contexte professionnel réel.</p>
               <div class="project-meta">
                 <span class="tag">Power BI</span>
-                <span class="tag">Excel</span>
-                <span class="tag">EDA</span>
-                <span class="tag">Reporting</span>
-              </div>
-            </div>
-            <div class="project-bottom">
-              <span>Excellent projet pour mettre en avant ton côté métier et finance publique.</span>
-            </div>
-          </article>
-
-          <article class="card project-card reveal">
-            <div class="project-top">
-              <span class="project-label">Projet personnel</span>
-              <h3>MoneyLink</h3>
-              <p>Projet personnel à présenter comme une solution mêlant logique produit, données et usage financier. Cette carte peut être enrichie avec le besoin, la cible, les fonctionnalités et l’architecture.</p>
-              <div class="project-meta">
-                <span class="tag">Finance</span>
-                <span class="tag">Produit</span>
-                <span class="tag">Vision</span>
-              </div>
-            </div>
-            <div class="project-bottom">
-              <span>Très intéressant pour montrer mon initiative personnelle.</span>
-            </div>
-          </article>
-
-          <article class="card project-card reveal">
-            <div class="project-top">
-              <span class="project-label">Projet personnel à créer</span>
-              <h3>Analyse de données financières</h3>
-              <p>Je peux ajouter un projet personnel d’analyse de séries temporelles, de risque, ou de visualisation d’indicateurs financiers pour renforcer mon profil hybride.</p>
-              <div class="project-meta">
-                <span class="tag">Python</span>
-                <span class="tag">Finance</span>
-                <span class="tag">Visualisation</span>
-              </div>
-            </div>
-            <div class="project-bottom">
-              <span>Idéal pour lier technique, finance et storytelling analytique.</span>
-            </div>
-          </article>
-
-          <article class="card project-card reveal">
-            <div class="project-top">
-              <span class="project-label">Projet personnel à créer</span>
-              <h3>Dashboard interactif métier</h3>
-              <p>Un mini projet orienté business intelligence avec KPI, filtres, analyses et visuels peut rendre ton portfolio plus complet et plus impressionnant visuellement.</p>
-              <div class="project-meta">
-                <span class="tag">Dashboard</span>
                 <span class="tag">KPI</span>
-                <span class="tag">Analyse</span>
+                <span class="tag">Power Query</span>
+                <span class="tag">Data Viz</span>
               </div>
             </div>
-            <div class="project-bottom">
-              <span>Parfait pour montrer un rendu concret et recruteur-friendly.</span>
-            </div>
+            <div class="project-bottom">La partie de mon profil la plus directement exploitable en contexte entreprise.</div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="certifications">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <h2>Certificats & formations</h2>
-          </div>
-          <p>
-            Je peux ici afficher tes certifications validées ou en cours, même si elles sont courtes. L’important est de montrer une démarche d’apprentissage continue.
-          </p>
-        </div>
-        <div class="cert-grid">
-          <div class="card reveal">
-            <h3>Certificats actuels</h3>
-            <p>Ajoute ici mes certificats réels avec le nom, la plateforme, l’année et un lien si disponible.</p>
-            <ul>
-              <li>Exemple : Python for Data Science</li>
-              <li>Exemple : Power BI / Data Visualization</li>
-              <li>Exemple : SQL / Data Analysis</li>
-            </ul>
-          </div>
-          <div class="card reveal">
-            <h3>Formations en cours ou prévues</h3>
-            <p>Je peux aussi montrer les sujets que tu développes actuellement pour donner de la visibilité sur ta progression.</p>
-            <ul>
-              <li>Data Engineering fundamentals</li>
-              <li>Finance analytique / quantitative</li>
-              <li>Machine Learning appliqué</li>
-            </ul>
-          </div>
         </div>
       </div>
     </section>
@@ -749,30 +855,54 @@
     <section id="skills">
       <div class="container">
         <div class="section-head reveal">
-          <div>
-            <h2>Compétences</h2>
-          </div>
-          <p>
-            Un mélange de compétences techniques, analytiques et transversales pour des projets orientés donnée, intelligence artificielle et finance.
-          </p>
+          <h2>Compétences</h2>
+          <p>Un socle technique varié, avec une vraie cohérence entre données, finance, visualisation, machine learning et développement.</p>
         </div>
         <div class="skills-grid">
           <div class="card reveal">
-            <h3>Compétences techniques</h3>
-            <div class="skills-list">
-              <div class="skill-line"><strong>Langages</strong> Python, SQL, VBA, Java, C#, C++, HTML</div>
-              <div class="skill-line"><strong>Data</strong> Pandas, NumPy, Scikit-learn, statistiques, modélisation</div>
-              <div class="skill-line"><strong>BI</strong> Power BI, Excel, reporting, visualisation</div>
-              <div class="skill-line"><strong>Outils</strong> Git/GitHub, Linux, automatisation, notions cloud</div>
+            <h3>Stack technique</h3>
+            <div class="skill-lines">
+              <div class="line"><strong>Data :</strong> Python, Pandas, NumPy, Scikit-learn, statistiques, visualisation</div>
+              <div class="line"><strong>Machine Learning :</strong> Machine Learning, Deep Learning, TensorFlow, PyTorch</div>
+              <div class="line"><strong>BI :</strong> Power BI, Power Query, reporting, KPI, tableaux de bord</div>
+              <div class="line"><strong>Développement :</strong> Flutter, C#, .NET, Java, API, Postman</div>
+              <div class="line"><strong>Outils :</strong> SQL, GitHub, Linux, Azure</div>
             </div>
           </div>
+
+          <div class="card reveal delay-1">
+            <h3>Compétences métier</h3>
+            <div class="skill-lines">
+              <div class="line"><strong>Finance :</strong> finance de marché, mathématiques financières, analyse quantitative, risques</div>
+              <div class="line"><strong>Analyse :</strong> nettoyage de données, structuration, interprétation, aide à la décision</div>
+              <div class="line"><strong>Conformité :</strong> notions RGPD, sensibilisation à la protection des données</div>
+              <div class="line"><strong>Transversal :</strong> communication, travail d’équipe, rigueur scientifique</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="formation">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Formation & certification</h2>
+          <p>Un parcours qui combine socle scientifique, spécialisation en data et finance, et montée progressive vers des projets plus appliqués.</p>
+        </div>
+        <div class="edu-grid">
           <div class="card reveal">
-            <h3>Compétences métier & soft skills</h3>
-            <div class="skills-list">
-              <div class="skill-line"><strong>Finance</strong> finance quantitative, analyse de risque, mathématiques financières</div>
-              <div class="skill-line"><strong>Analyse</strong> structuration de données, EDA, KPI, aide à la décision</div>
-              <div class="skill-line"><strong>Qualités</strong> esprit d’analyse, travail en équipe, rigueur scientifique</div>
-              <div class="skill-line"><strong>Communication</strong> synthèse, restitution, communication technique</div>
+            <h3>Formation</h3>
+            <div class="edu-list">
+              <div class="line"><strong>2023 – 2025 :</strong> ESIGELEC — Cycle ingénieur, spécialisation Data & Finance</div>
+              <div class="line"><strong>2021 – 2023 :</strong> Classe préparatoire scientifique</div>
+              <div class="line"><strong>Bac Scientifique :</strong> Cours Sainte Marie de Hann — dominante mathématiques, physique et SVT</div>
+            </div>
+          </div>
+          <div class="card reveal delay-1">
+            <h3>Certification</h3>
+            <div class="cert-list">
+              <div class="line"><strong>CNIL :</strong>  A montrer sur demande </div>
+              <div class="line"><strong>Orientation :</strong> intérêt pour la data responsable, la conformité et la protection des données</div>
             </div>
           </div>
         </div>
@@ -782,25 +912,20 @@
     <section id="contact">
       <div class="container">
         <div class="section-head reveal">
-          <div>
-            <h2>Contact</h2>
-          </div>
-          <p>
-            Je peux ajouter ici tes liens réels GitHub, LinkedIn, ton CV en PDF et une adresse mail cliquable.
-          </p>
+          <h2>Contact</h2>
+          <p>Disponible immédiatement et ouverte aux opportunités en stage et alternance (septembre 2026). Mobile géographiquement.</p>
         </div>
         <div class="contact-grid">
-          <div class="card contact-box reveal">
-            <h3>Coordonnées</h3>
+          <div class="card contact-card reveal">
+            <h3>Informations</h3>
             <p><strong style="color:white;">Email :</strong> <a href="mailto:aminatahamady2003@gmail.com">aminatahamady2003@gmail.com</a></p>
-            <p><strong style="color:white;">LinkedIn :</strong> <a href="#">ajoute ton lien LinkedIn</a></p>
-            <p><strong style="color:white;">GitHub :</strong> <a href="#">ajoute ton lien GitHub</a></p>
+            <p><strong style="color:white;">LinkedIn :</strong> Aminata SY</p>
+            <p><strong style="color:white;">Disponibilité :</strong> immédiate</p>
+            <p><strong style="color:white;">Mobilité :</strong> oui</p>
           </div>
-          <div class="card reveal">
+          <div class="card reveal delay-1">
             <h3>Ce que je recherche</h3>
-            <p>
-              Je recherche un <strong style="color:white;">stage de fin d’études</strong> ainsi qu’une <strong style="color:white;">alternance de master</strong> dans les domaines de la data, de l’IA, de l’analyse ou des sujets à forte composante finance / décision.
-            </p>
+            <p>Je recherche principalement un <strong style="color:white;">stage</strong> et une <strong style="color:white;">alternance</strong> dans les domaines de la data, de l’IA, de la business intelligence, de la finance analytique ou sur des projets numériques à fort enjeu métier.</p>
           </div>
         </div>
       </div>
@@ -808,15 +933,13 @@
   </main>
 
   <footer class="footer container">
-    <p>© 2026 — Portfolio d’Aminata SY | Data, IA & Finance</p>
+    <p>© 2026 — Portfolio d’Aminata SY</p>
   </footer>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.12 });
 
